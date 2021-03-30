@@ -8,7 +8,11 @@ body {
   color: #ddd !important;
 }
 
-/* bestsellers table */
+.navbar-dark .navbar-nav .nav-link{
+  font-size: 18px;
+}
+
+/* bestsellers */
 
 h2{
   margin: 40px 0 0 22px !important;
@@ -39,26 +43,7 @@ h2{
   background-size: cover;
 }
 
-/* banner  js */
-.banner {
-  height: 400px;
-  width: 879px;
-  margin: 30px 0 30px 0;
-  position: relative;
-  display: flex;
-}
-
-.banner-slideshow img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.75s ease-in-out;
-}
+/* banner  */
 
 .carousel-inner > .carousel-item > img {
   height: calc(130px + (600 - 130) * ((100vw - 360px) / (1600 - 360))) !important;
