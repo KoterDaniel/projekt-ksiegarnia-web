@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -23,7 +24,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-5">
         <a href="#" class="navbar-brand">
             <img src="images/logo.png" alt="" width="150" height="150" class="d-inline-block">
         </a>
@@ -33,39 +34,27 @@
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">About</a>
-                <a href="#" class="nav-item nav-link">Products</a>
+                <a href="#" class="nav-item nav-link active">Strona główna</a>
+                <a href="categories.html" class="nav-item nav-link">Kategorie</a>
+                <a href="news.html" class="nav-item nav-link">Nowości</a>
+                <a href="aboutUs.html" class="nav-item nav-link">O nas</a>
+                <a href="contact.html" class="nav-item nav-link">Kontakt</a>
             </div>
-            <form class="form-inline ml-auto">
-                <input type="text" class="form-control mr-sm-2" placeholder="Search">
-                <button type="submit" class="btn btn-outline-light">Search</button>
+            <form class="form-inline ml-2" action="/action_page.php">
+                <input type="text" class="form-control mr-sm-2" placeholder="wpisz tytuł, autora..">
+                <button type="submit" class="btn btn-outline-light">Szukaj</button>
             </form>
-        </div>
+            <div class="navbar-nav navbar-right ml-auto">
+                <a href="#" class="nav-item nav-link active ln"><i class="fa fa-user" aria-hidden="true"></i> Stwórz
+                    konto</a>
+                <a href="#" class="nav-item nav-link active ln"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                    Zaloguj</a>
+                </ul>
+            </div>
     </nav>
 
 
-
-    <div class="topnav">
-        <a class="logo" href="#home">
-            <img src='images/logo.png' alt="logo">
-        </a>
-        <div class="search-container">
-            <form action="/action_page.php">
-                <input type="text" placeholder="Wpisz tytuł, autora.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
-        </div>
-        <div class="topnavmenu">
-            <a class="active" href="#home">Home</a>
-            <a href="#categories">Kategorie</a>
-            <a href="#news">Nowości</a>
-            <a href="contact.html">Kontakt</a>
-        </div>
-    </div>
-
-
-    <div id="carouselExampleIndicators" class="carousel slide" data-interval="4000" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-interval="2000" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -91,19 +80,36 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    
 
-    <table>
-        <tr>
-            <th>Bestsellers</th>
-        </tr>
-        <tr>
-            <td><img src='images/book1.jpg'></td>
-            <td><img src='images/book2.jpg'></td>
-            <td><img src='images/book3.jpg'></td>
-            <td><img src='images/book4.jpg'></td>
-        </tr>
-    </table>
+
+
+    <h2 class="display-4"><strong>Bestsellers</strong></h2>
+    <div class="row-fluid">
+        <div class="col-lg-12 col-md-10">
+            <div class="book-container">
+                <div class="book-item" style="background-image: url('images/book1.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book2.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book3.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book4.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book1.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book2.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book3.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book4.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book1.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book2.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book3.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book4.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book1.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book2.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book3.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book4.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book1.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book2.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book3.jpg')"></div>
+                <div class="book-item" style="background-image: url('images/book4.jpg')"></div>
+            </div>
+        </div>
+    </div>
 
 
     <div class="container-fluid pb-0 mb-0 justify-content-center text-light ">
