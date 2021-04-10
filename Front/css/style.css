@@ -69,8 +69,27 @@ H3 {
   font-size: calc(25px + (50 - 25) * ((100vw - 360px) / (1600 - 360))) !important;
 }
 
-
 .social {
   font-size: 70px;
+}
+
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-youtube-play {
+  color: #bb0000;
+}
+
+.fa-twitter {
+  color: #55ACEE;
+}
+
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  /* Also define standard property for compatibility */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
