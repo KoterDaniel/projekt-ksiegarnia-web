@@ -79,6 +79,18 @@ class Navbar extends Component {
               </Link>
             </li>
 
+            <li className="nav-item">
+              <Link to={"/book"} className="nav-link">
+                Book
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to={"/bookList"} className="nav-link">
+                BookList
+              </Link>
+            </li>
+
             {showModeratorBoard && (
               <li className="nav-item=">
                 <Link to={"/mod"} className="nav-link">
