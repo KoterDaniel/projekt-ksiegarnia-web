@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 
 import UserService from "../services/user.service";
 
@@ -40,32 +40,48 @@ export default class Categories extends Component {
     );
   }
 
-  ChangeCategory = () => {
-    //var x = this.state.fantasy;
-
+  ChangeCategoryDrama = () => {
+    var index;
+    var list = document.getElementsByClassName("book-item");
     var x = document.getElementsByClassName("dropdown-item")[0];
     this.setState({ menuTitle: x.textContent });
     this.setState({ title: x.textContent });
 
+    for (index = 0; index < list.length; ++index) {
+      list[index].style.backgroundImage = `url(${book1})`;
+    }
+  };
+  ChangeCategoryFantasy = () => {
     var index;
     var list = document.getElementsByClassName("book-item");
+    var x = document.getElementsByClassName("dropdown-item")[1];
+    this.setState({ menuTitle: x.textContent });
+    this.setState({ title: x.textContent });
 
-    if (x.textContent === "Drama") {
-      for (index = 0; index < list.length; ++index) {
-        list[index].style.backgroundImage = `url(${book1})`;
-      }
-    } else if (x.textContent === "Fantasy") {
-      for (index = 0; index < list.length; ++index) {
-        list[index].style.backgroundImage = `url(${book2})`;
-      }
-    } else if (x.textContent === "Thriller") {
-      for (index = 0; index < list.length; ++index) {
-        list[index].style.backgroundImage = `url(${book3})`;
-      }
-    } else {
-      for (index = 0; index < list.length; ++index) {
-        list[index].style.backgroundImage = `url(${book4})`;
-      }
+    for (index = 0; index < list.length; ++index) {
+      list[index].style.backgroundImage = `url(${book2})`;
+    }
+  };
+  ChangeCategoryThiller = () => {
+    var index;
+    var list = document.getElementsByClassName("book-item");
+    var x = document.getElementsByClassName("dropdown-item")[2];
+    this.setState({ menuTitle: x.textContent });
+    this.setState({ title: x.textContent });
+
+    for (index = 0; index < list.length; ++index) {
+      list[index].style.backgroundImage = `url(${book3})`;
+    }
+  };
+  ChangeCategoryInne = () => {
+    var index;
+    var list = document.getElementsByClassName("book-item");
+    var x = document.getElementsByClassName("dropdown-item")[3];
+    this.setState({ menuTitle: x.textContent });
+    this.setState({ title: x.textContent });
+
+    for (index = 0; index < list.length; ++index) {
+      list[index].style.backgroundImage = `url(${book4})`;
     }
   };
 
@@ -85,28 +101,40 @@ export default class Categories extends Component {
             <div className="mainText">{this.state.menuTitle}</div>
           </a>
 
-          <div
-            onClick={this.ChangeCategory}
-            className="dropdown-menu"
-            aria-labelledby="dropdownMenuLink"
-          >
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li>
-              <a className="dropdown-item" href="#">
+              <a
+                onClick={this.ChangeCategoryDrama}
+                className="dropdown-item"
+                href="#"
+              >
                 {this.state.drama}
               </a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <a
+                onClick={this.ChangeCategoryFantasy}
+                className="dropdown-item"
+                href="#"
+              >
                 {this.state.fantasy}
               </a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <a
+                onClick={this.ChangeCategoryThiller}
+                className="dropdown-item"
+                href="#"
+              >
                 {this.state.thriller}
               </a>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <a
+                onClick={this.ChangeCategoryInne}
+                className="dropdown-item"
+                href="#"
+              >
                 {this.state.inne}
               </a>
             </li>
