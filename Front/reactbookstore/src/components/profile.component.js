@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
+import book1 from "../assets/book1.jpg";
+import book2 from "../assets/book2.jpg";
+
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +13,8 @@ export default class Profile extends Component {
       redirect: null,
       userReady: false,
       currentUser: { username: "" },
+      daneUzytkownika: "Dane użytkownika",
+      historiaZakupow: "Historia zakupów",
     };
   }
 
@@ -29,44 +34,43 @@ export default class Profile extends Component {
 
     return (
       <div className="container">
-        {this.state.userReady ? (
-          <div>
-            <header className="jumbotron bg-light">
-              <h3>
-                <strong>{currentUser.username}</strong> Profil
-              </h3>
-            </header>
-            <div className="bg-dark">
-              <div className="row bg-dark text-light">
-                <div className="col-4">Dane użytkownika</div>
+        <header className="jumbotron">
+          <h3>Nowości</h3>
+          <h3>{this.state.content}</h3>
+        </header>
 
-                <div className="col-4">Historia</div>
-
-                <div className="col-4">Coś tam</div>
-              </div>
-            </div>
-            {/* <p className="text-light">
-              <strong className="text-white">Token: </strong>{" "}
-              {currentUser.accessToken.substring(0, 20)} ...{" "}
-              {currentUser.accessToken.substr(
-                currentUser.accessToken.length - 20
-              )}
-            </p> */}
-            {/* <p className="text-light">
-              <strong className="text-white">Id:</strong> {currentUser.id}
-            </p> */}
-            <p className="text-light">
-              <strong className="text-white">Email:</strong> {currentUser.email}
-            </p>
-            {/* <strong className="text-white">Authorities:</strong>
-            <ul className="text-light">
-              {currentUser.roles &&
-                currentUser.roles.map((role, index) => (
-                  <li key={index}>{role}</li>
-                ))}
-            </ul> */}
+        <div className="row">
+          <div className="col-lg-6 col-md-6">
+            <p class="h4">{this.state.historiaZakupow}</p>
           </div>
-        ) : null}
+          <div className="col-lg-6 col-md-6">
+            <p class="h4">{this.state.daneUzytkownika}</p>
+          </div>
+        </div>
+
+        <div className="row my-5">
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <p class="font-weight-normal h5">Tytuł: </p>
+            <p class="font-weight-normal h5">data zakupu: </p>
+            <p class="font-weight-normal h5">cena zakupu: </p>
+            <div
+              className="book-item mb-5"
+              style={{ backgroundImage: `url(${book1})` }}
+            ></div>
+
+            <p class="font-weight-normal h5">Tytuł: </p>
+            <p class="font-weight-normal h5">data zakupu: </p>
+            <p class="font-weight-normal h5">cena zakupu: </p>
+            <div
+              className="book-item mb-5"
+              style={{ backgroundImage: `url(${book2})` }}
+            ></div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12">
+            <p class="font-weight-normal h5">Nick: {currentUser.email}</p>
+            <p class="font-weight-normal h5">Email: </p>
+          </div>
+        </div>
       </div>
     );
   }
