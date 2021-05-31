@@ -79,7 +79,7 @@ class Navbar extends Component {
               </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to={"/book"} className="nav-link">
                 Book
               </Link>
@@ -89,7 +89,7 @@ class Navbar extends Component {
               <Link to={"/bookList"} className="nav-link">
                 BookList
               </Link>
-            </li>
+            </li> */}
 
             {showModeratorBoard && (
               <li className="nav-item=">

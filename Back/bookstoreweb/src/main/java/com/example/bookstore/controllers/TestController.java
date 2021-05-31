@@ -32,4 +32,9 @@ public class TestController {
     public String adminAccess() {
         return "Pulpit admina";
     }
+
+    @GetMapping("/book")
+    public String test(){
+        return "test";
+    }
 }

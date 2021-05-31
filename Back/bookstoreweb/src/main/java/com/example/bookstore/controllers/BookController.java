@@ -14,15 +14,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 @RestController
 @RequestMapping("/books")
-@CrossOrigin(origins="http://localhost:3000")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class BookController implements Resource<Book> {
+
+//    String[] items = {"Appa Item no. 1", "Appa Item no. 2", "Appa Item no. 3", "Appa Item no. 4"};
+//
+//    @GetMapping("/showinfo")
+//    public String[] showinfo(){
+//        return findAll();
+//    }
+
     @Autowired
     private IService<Book> bookService;
 

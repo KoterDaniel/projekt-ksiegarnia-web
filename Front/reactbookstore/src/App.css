@@ -35,6 +35,11 @@ label {
   border-radius: 50%;
 }
 
+.figure img{
+  width: 150px !important;
+  height: 200px !important;
+}
+
 .toolbar_logo{
   width: 100px;
   height: 100px;

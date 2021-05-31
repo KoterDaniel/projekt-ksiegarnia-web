@@ -15,7 +15,7 @@ export default class Book extends Component {
       coverPhotoURL: "",
       isbnNumber: "",
       price: "",
-      language: "",
+      quantity: "",
     };
     this.bookChange = this.bookChange.bind(this);
     this.submitBook = this.submitBook.bind(this);
@@ -51,8 +51,8 @@ export default class Book extends Component {
         this.state.isbnNumber +
         " Cena: " +
         this.state.price +
-        " Język: " +
-        this.state.language
+        " Ilość: " +
+        this.state.quantity
     );
     event.preventDefault();
   }
@@ -143,16 +143,16 @@ export default class Book extends Component {
                 />
               </Form.Group>
 
-              <Form.Group as={Col} controlId="formGridLanguage">
-                <Form.Label>Język</Form.Label>
+              <Form.Group as={Col} controlId="formGridQuantity">
+                <Form.Label>Ilość</Form.Label>
                 <Form.Control
                   required
                   type="text"
-                  value={this.state.language}
+                  value={this.state.quantity}
                   onChange={this.bookChange}
-                  name="language"
+                  name="quantity"
                   className={"bg-dark text-white"}
-                  placeholder="Wprowadź język książki"
+                  placeholder="Wprowadź ilość książek"
                 />
               </Form.Group>
             </Form.Row>

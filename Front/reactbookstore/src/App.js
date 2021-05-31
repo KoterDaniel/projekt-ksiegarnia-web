@@ -22,8 +22,8 @@ import Categories from "./components/categories.component";
 import News from "./components/news.component";
 import AboutUs from "./components/aboutUs.component";
 import Contact from "./components/contact.component";
-import Book from "./components/book/book";
-import BookList from "./components/book/bookList";
+// import Book from "./components/book/book";
+// import BookList from "./components/book/bookList";
 
 class App extends Component {
   constructor(props) {
@@ -68,8 +68,8 @@ class App extends Component {
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
-            <Route path="/book" component={Book} />
-            <Route path="/bookList" component={BookList} />
+            {/* <Route path="/book" component={Book} />
+            <Route path="/bookList" component={BookList} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />

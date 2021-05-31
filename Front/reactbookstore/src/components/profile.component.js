@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
+import { Card, Form, Accordion, Col, Row } from "react-bootstrap";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHistory, faUser } from "@fortawesome/free-solid-svg-icons";
+
+import book1 from "../assets/book1.jpg";
+import book2 from "../assets/book2.jpg";
+import book3 from "../assets/book3.jpg";
+import book4 from "../assets/book4.jpg";
+
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -10,6 +20,8 @@ export default class Profile extends Component {
       redirect: null,
       userReady: false,
       currentUser: { username: "" },
+      daneUzytkownika: "Dane użytkownika",
+      historiaZakupow: "Historia zakupów",
     };
   }
 
@@ -29,44 +41,129 @@ export default class Profile extends Component {
 
     return (
       <div className="container">
-        {this.state.userReady ? (
-          <div>
-            <header className="jumbotron bg-light">
-              <h3>
-                <strong>{currentUser.username}</strong> Profil
-              </h3>
-            </header>
-            <div className="bg-dark">
-              <div className="row bg-dark text-light">
-                <div className="col-4">Dane użytkownika</div>
+        <header className="jumbotron bg-light">
+          <h3>
+            <strong>{currentUser.username}</strong> Profil
+          </h3>
+        </header>
 
-                <div className="col-4">Historia</div>
+        <div>
+          <Accordion>
+            <Card className={"border border-dark bg-dark text-white"}>
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                <FontAwesomeIcon className="mr-1" icon={faUser} />
+                {this.state.daneUzytkownika}
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                <Form onSubmit={this.submitBook} id="bookFormId">
+                  <Card.Body>
+                    <Row>
+                      <Col>
+                        <p class="font-weight-normal h5">Nazwa Użytkownika:</p>
+                      </Col>
+                      <Col>
+                        <p class="font-weight-normal h5">
+                          {currentUser.username}
+                        </p>
+                      </Col>
+                    </Row>
 
-                <div className="col-4">Coś tam</div>
-              </div>
-            </div>
-            {/* <p className="text-light">
-              <strong className="text-white">Token: </strong>{" "}
-              {currentUser.accessToken.substring(0, 20)} ...{" "}
-              {currentUser.accessToken.substr(
-                currentUser.accessToken.length - 20
-              )}
-            </p> */}
-            {/* <p className="text-light">
-              <strong className="text-white">Id:</strong> {currentUser.id}
-            </p> */}
-            <p className="text-light">
-              <strong className="text-white">Email:</strong> {currentUser.email}
-            </p>
-            {/* <strong className="text-white">Authorities:</strong>
-            <ul className="text-light">
-              {currentUser.roles &&
-                currentUser.roles.map((role, index) => (
-                  <li key={index}>{role}</li>
-                ))}
-            </ul> */}
-          </div>
-        ) : null}
+                    <Row>
+                      <Col>
+                        <p class="font-weight-normal h5">E-mail:</p>
+                      </Col>
+                      <Col>
+                        <p class="font-weight-normal h5">{currentUser.email}</p>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col>
+                        <p class="font-weight-normal h5">E-mail:</p>
+                      </Col>
+                      <Col>
+                        <p class="font-weight-normal h5">{currentUser.email}</p>
+                      </Col>
+                    </Row>
+
+                    <Row>
+                      <Col>
+                        <p class="font-weight-normal h5">E-mail:</p>
+                      </Col>
+                      <Col>
+                        <p class="font-weight-normal h5">{currentUser.email}</p>
+                      </Col>
+                    </Row>
+                  </Card.Body>
+                </Form>
+              </Accordion.Collapse>
+
+              <Accordion.Toggle as={Card.Header} eventKey="1">
+                <FontAwesomeIcon className="mr-1" icon={faHistory} />
+                {this.state.historiaZakupow}
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="1">
+                <Card.Body>
+                  <Row>
+                    <Col>
+                      <div
+                        className="book-item mb-5"
+                        style={{ backgroundImage: `url(${book1})` }}
+                      ></div>
+                    </Col>
+                    <Col className="mt-3">
+                      <p class="font-weight-normal h5">Tytuł: </p>
+                      <p class="font-weight-normal h5">data zakupu: </p>
+                      <p class="font-weight-normal h5">cena zakupu: </p>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col>
+                      <div
+                        className="book-item mb-5"
+                        style={{ backgroundImage: `url(${book2})` }}
+                      ></div>
+                    </Col>
+                    <Col className="mt-3">
+                      <p class="font-weight-normal h5">Tytuł: </p>
+                      <p class="font-weight-normal h5">data zakupu: </p>
+                      <p class="font-weight-normal h5">cena zakupu: </p>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col>
+                      <div
+                        className="book-item mb-5"
+                        style={{ backgroundImage: `url(${book3})` }}
+                      ></div>
+                    </Col>
+                    <Col className="mt-3">
+                      <p class="font-weight-normal h5">Tytuł: </p>
+                      <p class="font-weight-normal h5">data zakupu: </p>
+                      <p class="font-weight-normal h5">cena zakupu: </p>
+                    </Col>
+                  </Row>
+
+                  <Row>
+                    <Col>
+                      <div
+                        className="book-item mb-5"
+                        style={{ backgroundImage: `url(${book4})` }}
+                      ></div>
+                    </Col>
+                    <Col className="mt-3">
+                      <p class="font-weight-normal h5">Tytuł: </p>
+                      <p class="font-weight-normal h5">data zakupu: </p>
+                      <p class="font-weight-normal h5">cena zakupu: </p>
+                    </Col>
+                  </Row>
+                </Card.Body>
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+        </div>
       </div>
     );
   }

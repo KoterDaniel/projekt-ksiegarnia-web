@@ -67,7 +67,7 @@ export default class BookList extends Component {
                     {" "}
                   </div>
                 </th> */}
-                <th>Język</th>
+                <th>Ilość</th>
                 <th>Gatunek</th>
                 <th>Operacje</th>
               </tr>

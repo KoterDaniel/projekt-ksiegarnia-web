@@ -23,7 +23,7 @@ public class Book {
     @Column (nullable = false)
     private String isbn10;
     @Column (nullable = false)
-    private Double price;
+    private String price;
     @Column (nullable = false)
     private String publisher;
     @Column (nullable = false)
@@ -31,11 +31,16 @@ public class Book {
     @Column (nullable = false)
     private String subjects;
     @Column (nullable = false)
-    private String overwiew;
+    private String overview;
     @Column (nullable = false)
     private String synopsis;
-
+    @Column (nullable = false)
     private String covers;
+    @Column (nullable = false)
+    private Integer quantity;
+    @Column (nullable = false)
+    private Integer availability;
+
 
     public Long getId() {
         return id;
@@ -85,11 +90,11 @@ public class Book {
         this.isbn10 = isbn10;
     }
 
-    public Double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -117,12 +122,12 @@ public class Book {
         this.subjects = subjects;
     }
 
-    public String getOverwiew() {
-        return overwiew;
+    public String getOverview() {
+        return overview;
     }
 
-    public void setOverwiew(String overwiew) {
-        this.overwiew = overwiew;
+    public void setOverview(String overview) {
+        this.overview = overview;
     }
 
     public String getSynopsis() {
@@ -139,5 +144,21 @@ public class Book {
 
     public void setCovers(String covers) {
         this.covers = covers;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Integer availability) {
+        this.availability = availability;
     }
 }
