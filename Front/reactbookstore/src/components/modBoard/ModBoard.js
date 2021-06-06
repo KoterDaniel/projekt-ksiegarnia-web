@@ -1,9 +1,6 @@
-import { faPlusSquare, faList } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 import UserService from "../../services/user.service";
-import { Button, Nav } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavMod from "./NavMod";
 import Book from "../book/Book";
 import BookList from "../bookList/BookList";
@@ -37,14 +34,6 @@ export default class BoardModerator extends Component {
       }
     );
   }
-
-  bookList = () => {
-    return this.props.history.push("/bookList");
-  };
-
-  addBook = () => {
-    return this.props.history.push("/book");
-  };
 
   render() {
     return (
