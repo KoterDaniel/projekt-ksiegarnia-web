@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
-import book1 from "../assets/book1.jpg";
-import book2 from "../assets/book2.jpg";
-
 import { Col, Container, Row, Figure } from "react-bootstrap";
 
 import Book1 from "../assets/book1.jpg";

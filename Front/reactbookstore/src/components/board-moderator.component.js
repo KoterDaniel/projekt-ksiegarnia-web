@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { deleteBook } from "../services/book/book-action";
-import { connect } from "react-redux";
+// import { deleteBook } from "../services/book/book-action";
+// import { connect } from "react-redux";
 import UserService from "../services/user.service";
 import {
   Accordion,
@@ -27,6 +27,7 @@ import {
   faFastForward,
   faSearch,
   faTimes,
+  faUndo,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 // import MyToast from "../MyToast";
@@ -35,6 +36,7 @@ import axios from "axios";
 export default class BoardModerator extends Component {
   constructor(props) {
     super(props);
+    this.state = this.initialState;
 
     this.state = {
       books: [],
@@ -43,16 +45,27 @@ export default class BoardModerator extends Component {
       sortDir: "asc",
       content: "",
       search: "",
-      title: "",
-      author: "",
-      coverPhotoURL: "",
-      isbnNumber: "",
-      price: "",
-      quantity: "",
     };
     this.bookChange = this.bookChange.bind(this);
     this.submitBook = this.submitBook.bind(this);
   }
+
+  initialState = {
+    title: "",
+    authors: "",
+    title_slug: "",
+    isbn13: "",
+    isbn10: "",
+    price: "",
+    publisher: "",
+    pubdate: "",
+    subject: "",
+    overview: "",
+    synopsis: "",
+    covers: "",
+    quantity: "",
+    availability: "",
+  };
 
   componentDidMount() {
     UserService.getModeratorBoard().then(
@@ -104,17 +117,28 @@ export default class BoardModerator extends Component {
   }
 
   deleteBook = (bookId) => {
-    this.props.deleteBook(bookId);
-    setTimeout(() => {
-      if (this.props.bookObject != null) {
-        this.setState({ show: true });
-        setTimeout(() => this.setState({ show: false }), 3000);
-        this.findAllBooks(this.state.currentPage);
-      } else {
-        this.setState({ show: false });
+    axios.delete("http://localhost:8080/books/" + bookId).then((response) => {
+      if (response.data != null) {
+        alert("Udało się usunąć książkę.");
+        // this.setState({
+        //   books: this.state.books.filter((book) => book.id !== bookId),
+        // });
       }
-    }, 1000);
+    });
   };
+
+  // deleteBook = (bookId) => {
+  //   this.props.deleteBook(bookId);
+  //   setTimeout(() => {
+  //     if (this.props.bookObject != null) {
+  //       this.setState({ show: true });
+  //       setTimeout(() => this.setState({ show: false }), 3000);
+  //       this.findAllBooks(this.state.currentPage);
+  //     } else {
+  //       this.setState({ show: false });
+  //     }
+  //   }, 1000);
+  // };
 
   changePage = (event) => {
     let targetPage = parseInt(event.target.value);
@@ -211,23 +235,36 @@ export default class BoardModerator extends Component {
   //     });
   // };
 
-  submitBook(event) {
-    alert(
-      "Tytuł: " +
-        this.state.title +
-        " Autor: " +
-        this.state.author +
-        " Cover Photo URL: " +
-        this.state.coverPhotoURL +
-        " Numer ISBN: " +
-        this.state.isbnNumber +
-        " Cena: " +
-        this.state.price +
-        " Ilość: " +
-        this.state.quantity
-    );
+  submitBook = (event) => {
+    const book = {
+      title: this.state.title,
+      authors: this.state.authors,
+      title_slug: this.state.title_slug,
+      isbn13: this.state.isbn13,
+      isbn10: this.state.isbn10,
+      price: this.state.price,
+      publisher: this.state.publisher,
+      pubdate: this.state.pubdate,
+      subject: this.state.subject,
+      overview: this.state.overview,
+      synopsis: this.state.synopsis,
+      covers: this.state.covers,
+      quantity: this.state.quantity,
+      availability: this.state.availability,
+    };
     event.preventDefault();
-  }
+
+    axios.post("http://localhost:8080/books", book).then((response) => {
+      if (response.data != null) {
+        this.setState(this.initialState);
+        alert("Udało się pomyślnie zapisać książkę.");
+      }
+    });
+  };
+
+  resetBook = () => {
+    this.setState(() => this.initialState);
+  };
 
   // sortData = () => {
   //   setTimeout(() => {
@@ -238,14 +275,33 @@ export default class BoardModerator extends Component {
   //   }, 500);
   // };
 
-  bookChange(event) {
+  bookChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
     });
-  }
+  };
 
   render() {
-    const { books, currentPage, totalPages, search } = this.state;
+    const {
+      books,
+      currentPage,
+      totalPages,
+      search,
+      title,
+      authors,
+      title_slug,
+      isbn13,
+      isbn10,
+      price,
+      publisher,
+      pubdate,
+      subject,
+      overview,
+      synopsis,
+      covers,
+      quantity,
+      availability,
+    } = this.state;
 
     return (
       <div>
@@ -256,15 +312,20 @@ export default class BoardModerator extends Component {
               Dodaj książkę
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
-              <Form onSubmit={this.submitBook} id="bookFormId">
+              <Form
+                onReset={this.resetBook}
+                onSubmit={this.submitBook}
+                id="bookFormId"
+              >
                 <Card.Body>
                   <Form.Row>
                     <Form.Group as={Col} controlId="formGridTitle">
                       <Form.Label>Tytuł</Form.Label>
                       <Form.Control
                         required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.title}
+                        value={title}
                         onChange={this.bookChange}
                         name="title"
                         className={"bg-dark text-white"}
@@ -272,14 +333,15 @@ export default class BoardModerator extends Component {
                       />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridAuthor">
+                    <Form.Group as={Col} controlId="formGridAuthors">
                       <Form.Label>Autor</Form.Label>
                       <Form.Control
                         required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.author}
+                        value={authors}
                         onChange={this.bookChange}
-                        name="author"
+                        name="authors"
                         className={"bg-dark text-white"}
                         placeholder="Wprowadź autora książki"
                       />
@@ -287,57 +349,177 @@ export default class BoardModerator extends Component {
                   </Form.Row>
 
                   <Form.Row>
-                    <Form.Group as={Col} controlId="formGridCoverPhotoURL">
-                      <Form.Label>Cover Photo URL</Form.Label>
+                    <Form.Group as={Col} controlId="formGridTitle_slug">
+                      <Form.Label>Title slug</Form.Label>
                       <Form.Control
-                        required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.coverPhotoURL}
+                        value={title_slug}
                         onChange={this.bookChange}
-                        name="coverPhotoURL"
+                        name="title_slug"
                         className={"bg-dark text-white"}
-                        placeholder="Wprowadź Cover Photo URL ksiązki"
+                        placeholder="Wprowadź title slug ksiązki"
                       />
                     </Form.Group>
 
-                    <Form.Group as={Col} controlId="formGridISBNNumber">
-                      <Form.Label>Numer ISBN</Form.Label>
+                    <Form.Group as={Col} controlId="formGridISBN13">
+                      <Form.Label>Numer ISBN13</Form.Label>
                       <Form.Control
                         required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.isbnNumber}
+                        value={isbn13}
                         onChange={this.bookChange}
-                        name="isbnNumber"
+                        name="isbn13"
                         className={"bg-dark text-white"}
-                        placeholder="Wprowadź numer ISBN książki"
+                        placeholder="Wprowadź numer ISBN13 książki"
                       />
                     </Form.Group>
                   </Form.Row>
 
                   <Form.Row>
+                    <Form.Group as={Col} controlId="formGridISBN10">
+                      <Form.Label>Numer ISBN10</Form.Label>
+                      <Form.Control
+                        autoComplete="off"
+                        type="text"
+                        value={isbn10}
+                        onChange={this.bookChange}
+                        name="isbn10"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź numer ISBN10 książki"
+                      />
+                    </Form.Group>
+
                     <Form.Group as={Col} controlId="formGridPrice">
                       <Form.Label>Cena</Form.Label>
                       <Form.Control
                         required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.price}
+                        value={price}
                         onChange={this.bookChange}
                         name="price"
                         className={"bg-dark text-white"}
                         placeholder="Wprowadź cenę książki"
                       />
                     </Form.Group>
+                  </Form.Row>
 
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridPublisher">
+                      <Form.Label>Wydawca</Form.Label>
+                      <Form.Control
+                        required
+                        autoComplete="off"
+                        type="text"
+                        value={publisher}
+                        onChange={this.bookChange}
+                        name="publisher"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź wydawcę książki"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridPubDate">
+                      <Form.Label>Data wydania</Form.Label>
+                      <Form.Control
+                        required
+                        autoComplete="off"
+                        type="text"
+                        value={pubdate}
+                        onChange={this.bookChange}
+                        name="pubdate"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź miesiąć i rok wydania książki"
+                      />
+                    </Form.Group>
+                  </Form.Row>
+
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridSubject">
+                      <Form.Label>Temat</Form.Label>
+                      <Form.Control
+                        required
+                        autoComplete="off"
+                        type="text"
+                        value={subject}
+                        onChange={this.bookChange}
+                        name="subject"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź temat książki"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridOverview">
+                      <Form.Label>Opis</Form.Label>
+                      <Form.Control
+                        autoComplete="off"
+                        type="text"
+                        value={overview}
+                        onChange={this.bookChange}
+                        name="overview"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź opis książki"
+                      />
+                    </Form.Group>
+                  </Form.Row>
+
+                  <Form.Row>
+                    <Form.Group as={Col} controlId="formGridSynopsis">
+                      <Form.Label>Streszczenie</Form.Label>
+                      <Form.Control
+                        autoComplete="off"
+                        type="text"
+                        value={synopsis}
+                        onChange={this.bookChange}
+                        name="synopsis"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź streszczenie książki"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridCovers">
+                      <Form.Label>Adres URL okładki</Form.Label>
+                      <Form.Control
+                        required
+                        autoComplete="off"
+                        type="text"
+                        value={covers}
+                        onChange={this.bookChange}
+                        name="covers"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź URL okładki książki"
+                      />
+                    </Form.Group>
+                  </Form.Row>
+
+                  <Form.Row>
                     <Form.Group as={Col} controlId="formGridQuantity">
                       <Form.Label>Ilość</Form.Label>
                       <Form.Control
                         required
+                        autoComplete="off"
                         type="text"
-                        value={this.state.quantity}
+                        value={quantity}
                         onChange={this.bookChange}
                         name="quantity"
                         className={"bg-dark text-white"}
-                        placeholder="Wprowadź ilość książek"
+                        placeholder="Wprowadź ilość dostępnych książek"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridAvailability">
+                      <Form.Label>Dostępność</Form.Label>
+                      <Form.Control
+                        required
+                        autoComplete="off"
+                        type="text"
+                        value={availability}
+                        onChange={this.bookChange}
+                        name="availability"
+                        className={"bg-dark text-white"}
+                        placeholder="Wprowadź dostępność książki (1 lub 0)"
                       />
                     </Form.Group>
                   </Form.Row>
@@ -347,6 +529,10 @@ export default class BoardModerator extends Component {
                   <Button size="sm" variant="success" type="submit">
                     <FontAwesomeIcon className="mr-1" icon={faSave} />
                     Zapisz
+                  </Button>{" "}
+                  <Button size="sm" variant="info" type="reset">
+                    <FontAwesomeIcon className="mr-1" icon={faUndo} />
+                    Reset
                   </Button>
                 </Card.Footer>
               </Form>
@@ -354,7 +540,7 @@ export default class BoardModerator extends Component {
 
             <Accordion.Toggle as={Card.Header} eventKey="1">
               <div style={{ float: "left" }}>
-                <FontAwesomeIcon icon={faList} /> Book List
+                <FontAwesomeIcon icon={faList} /> Lista książek
               </div>
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
@@ -393,7 +579,7 @@ export default class BoardModerator extends Component {
                   <thead>
                     <tr>
                       <th>Tytuł</th>
-                      <th>Autors</th>
+                      <th>Autor</th>
                       <th>Numer ISBN</th>
                       <th onClick={this.sortData}>
                         Cena{" "}
@@ -415,7 +601,7 @@ export default class BoardModerator extends Component {
                   <tbody>
                     {books.length === 0 ? (
                       <tr align="center">
-                        <td colSpan="7">No Books Available.</td>
+                        <td colSpan="7">Brak książek.</td>
                       </tr>
                     ) : (
                       books.map((book) => (
@@ -445,7 +631,7 @@ export default class BoardModerator extends Component {
                               <Button
                                 size="sm"
                                 variant="outline-danger"
-                                // onClick={this.deleteBook.bind(this, book.id)}
+                                onClick={this.deleteBook.bind(this, book.id)}
                               >
                                 <FontAwesomeIcon icon={faTrash} />
                               </Button>
@@ -517,3 +703,17 @@ export default class BoardModerator extends Component {
     );
   }
 }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     bookObject: state.book,
+//   };
+// };
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     deleteBook: (bookId) => dispatch(deleteBook(bookId)),
+//   };
+// };
+
+// export default connect(mapStateToProps, mapDispatchToProps)(BoardModerator);
