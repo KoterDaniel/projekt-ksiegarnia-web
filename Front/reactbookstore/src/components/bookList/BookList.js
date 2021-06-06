@@ -67,7 +67,7 @@ export default class BookList extends Component {
           currentPage +
           "&pageSize=" +
           this.state.booksPerPage +
-          "&sortBy=id&sortDir=" +
+          "&sortBy=title&sortDir=" +
           this.state.sortDir
       )
       .then((response) => response.data)
@@ -198,7 +198,7 @@ export default class BookList extends Component {
   render() {
     const { books, currentPage, totalPages, search } = this.state;
     return (
-      <div>
+      <div className="container">
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <BookToast
             show={this.state.show}
@@ -286,7 +286,7 @@ export default class BookList extends Component {
                       <td>{book.isbn13}</td>
                       <td>{book.price}</td>
                       <td>{book.quantity}</td>
-                      <td>{book.subjects}</td>
+                      <td>{book.genre}</td>
                       <td>
                         <ButtonGroup>
                           <Link

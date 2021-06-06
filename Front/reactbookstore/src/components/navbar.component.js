@@ -79,7 +79,7 @@ class Navbar extends Component {
               </Link>
             </li>
 
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to={"/book"} className="nav-link">
                 Add Book
               </Link>
@@ -89,11 +89,11 @@ class Navbar extends Component {
               <Link to={"/bookList"} className="nav-link">
                 BookList
               </Link>
-            </li>
+            </li> */}
 
             {showModeratorBoard && (
               <li className="nav-item=">
-                <Link to={"/mod"} className="nav-link">
+                <Link to={"/mod"} className="nav-link text-info">
                   Moderator
                 </Link>
               </li>
@@ -101,16 +101,8 @@ class Navbar extends Component {
 
             {showAdminBoard && (
               <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
+                <Link to={"/admin"} className="nav-link text-info">
                   Admin
-                </Link>
-              </li>
-            )}
-
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  Użytkownik
                 </Link>
               </li>
             )}
@@ -118,13 +110,24 @@ class Navbar extends Component {
 
           {currentUser ? (
             <div className="navbar-nav ml-auto">
+              {currentUser && (
+                <li className="nav-item mr-5">
+                  <Link to={"/user"} className="nav-link text-warning">
+                    Cart
+                  </Link>
+                </li>
+              )}
               <li className="nav-item">
                 <Link to={"/profile"} className="nav-link">
                   {currentUser.username}
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
+                <a
+                  href="/login"
+                  className="nav-link text-danger"
+                  onClick={this.logOut}
+                >
                   Wyloguj
                 </a>
               </li>

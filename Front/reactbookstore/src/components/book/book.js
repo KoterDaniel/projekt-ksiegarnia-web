@@ -34,7 +34,7 @@ export default class Book extends Component {
     price: "",
     publisher: "",
     pubdate: "",
-    subjects: "",
+    genre: "",
     overview: "",
     synopsis: "",
     covers: "",
@@ -79,7 +79,7 @@ export default class Book extends Component {
             price: response.data.price,
             publisher: response.data.publisher,
             pubdate: response.data.pubdate,
-            subjects: response.data.subjects,
+            genre: response.data.genre,
             overview: response.data.overview,
             synopsis: response.data.synopsis,
             covers: response.data.covers,
@@ -100,10 +100,10 @@ export default class Book extends Component {
       title_slug: this.state.title_slug,
       isbn13: this.state.isbn13,
       isbn10: this.state.isbn10,
-      price: this.state.price,
+      price: "$" + this.state.price,
       publisher: this.state.publisher,
       pubdate: this.state.pubdate,
-      subjects: this.state.subjects,
+      genre: this.state.genre,
       overview: this.state.overview,
       synopsis: this.state.synopsis,
       covers: this.state.covers,
@@ -134,7 +134,7 @@ export default class Book extends Component {
       price: this.state.price,
       publisher: this.state.publisher,
       pubdate: this.state.pubdate,
-      subjects: this.state.subjects,
+      genre: this.state.genre,
       overview: this.state.overview,
       synopsis: this.state.synopsis,
       covers: this.state.covers,
@@ -179,7 +179,7 @@ export default class Book extends Component {
       price,
       publisher,
       pubdate,
-      subjects,
+      genre,
       overview,
       synopsis,
       covers,
@@ -188,7 +188,7 @@ export default class Book extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="container">
         <div style={{ display: this.state.show ? "block" : "none" }}>
           <BookToast
             show={this.state.show}
@@ -335,15 +335,15 @@ export default class Book extends Component {
               </Form.Row>
 
               <Form.Row>
-                <Form.Group as={Col} controlId="formGridSubjects">
+                <Form.Group as={Col} controlId="formGridGenre">
                   <Form.Label>Gener</Form.Label>
                   <Form.Control
                     required
                     autoComplete="off"
                     type="text"
-                    value={subjects}
+                    value={genre}
                     onChange={this.bookChange}
-                    name="subjects"
+                    name="genre"
                     className={"bg-dark text-white"}
                     placeholder="Wprowadź temat książki"
                   />
