@@ -166,7 +166,7 @@ export default class Book extends Component {
   };
 
   bookList = () => {
-    return this.props.history.push("/bookList");
+    return this.props.history.push("/mod/bookList");
   };
 
   render() {
