@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 // styling
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  faShoppingCart,
+  faSignInAlt,
+  faSignOutAlt,
+  faUser,
+  faUserPlus,
+} from "@fortawesome/free-solid-svg-icons";
 import "../App.css";
 
 // auth
@@ -51,31 +59,31 @@ class Navbar extends Component {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
-                Strona główna
+                Home
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/categories"} className="nav-link">
-                Kategorie
+                Categories
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/news"} className="nav-link">
-                Nowości
+                News
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/aboutUs"} className="nav-link">
-                O nas
+                About Us
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/contact"} className="nav-link">
-                Kontakt
+                Contact
               </Link>
             </li>
 
@@ -113,12 +121,14 @@ class Navbar extends Component {
               {currentUser && (
                 <li className="nav-item mr-5">
                   <Link to={"/user"} className="nav-link text-warning">
+                    <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
                     Cart
                   </Link>
                 </li>
               )}
               <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
+                <Link to={"/profile"} className="nav-link text-primary">
+                  <FontAwesomeIcon icon={faUser} className="mr-1" />
                   {currentUser.username}
                 </Link>
               </li>
@@ -128,7 +138,8 @@ class Navbar extends Component {
                   className="nav-link text-danger"
                   onClick={this.logOut}
                 >
-                  Wyloguj
+                  <FontAwesomeIcon icon={faSignOutAlt} className="mr-1" />
+                  Log out
                 </a>
               </li>
             </div>
@@ -136,13 +147,15 @@ class Navbar extends Component {
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to={"/login"} className="nav-link">
-                  Zaloguj
+                  <FontAwesomeIcon icon={faSignInAlt} className="mr-1" />
+                  Log in
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/register"} className="nav-link">
-                  Stwórz konto
+                  <FontAwesomeIcon icon={faUserPlus} className="mr-1" />
+                  Create New Account
                 </Link>
               </li>
             </div>

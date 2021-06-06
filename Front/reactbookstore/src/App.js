@@ -18,12 +18,13 @@ import BoardModerator from "./components/modBoard/ModBoard";
 import BoardAdmin from "./components/board-admin.component";
 import Navbar from "./components/navbar.component";
 import Footer from "./components/footer.component";
-import Categories from "./components/categories.component";
+// import Categories from "./components/categories.component";
 import News from "./components/news.component";
 import AboutUs from "./components/aboutUs.component";
 import Contact from "./components/contact.component";
-import Book from "./components/book/Book";
+import Book from "./components/addBook/AddBook";
 import BookList from "./components/bookList/BookList";
+import Categories from "./components/categories/Categories";
 
 class App extends Component {
   constructor(props) {

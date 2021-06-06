@@ -35,6 +35,14 @@ export default class BoardModerator extends Component {
     );
   }
 
+  bookList = () => {
+    return this.props.history.push("/bookList");
+  };
+
+  addBook = () => {
+    return this.props.history.push("/book");
+  };
+
   render() {
     return (
       <div className="container">

@@ -245,12 +245,12 @@ export default class BookList extends Component {
             <Table bordered hover striped variant="dark">
               <thead>
                 <tr>
-                  <th>Tytuł</th>
-                  <th>Autor</th>
-                  <th>Numer ISBN</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>ISBN Number</th>
                   <th onClick={this.sortData}>
-                    Cena{" "}
-                    <div
+                    Price
+                    {/* <div
                       className={
                         this.state.sortDir === "asc"
                           ? "arrow arrow-up"
@@ -258,17 +258,17 @@ export default class BookList extends Component {
                       }
                     >
                       {" "}
-                    </div>
+                    </div> */}
                   </th>
-                  <th>Ilość</th>
-                  <th>Gatunek</th>
-                  <th>Operacje</th>
+                  <th>Quantity</th>
+                  <th>Genre</th>
+                  <th>Operations</th>
                 </tr>
               </thead>
               <tbody>
                 {books.length === 0 ? (
                   <tr align="center">
-                    <td colSpan="7">Brak książek.</td>
+                    <td colSpan="7">No books.</td>
                   </tr>
                 ) : (
                   books.map((book) => (

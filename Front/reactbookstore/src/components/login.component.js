@@ -68,7 +68,7 @@ export default class Login extends Component {
 
           this.setState({
             loading: false,
-            message: "Niepoprawny login lub/i hasło.",
+            message: "Wrong username or/and password.",
           });
         }
       );
@@ -96,7 +96,7 @@ export default class Login extends Component {
             }}
           >
             <div className="form-group">
-              <label htmlFor="username">Nazwa użytkownika</label>
+              <label htmlFor="username">Username</label>
               <Input
                 type="text"
                 className="form-control"
@@ -108,7 +108,7 @@ export default class Login extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="password">Hasło</label>
+              <label htmlFor="password">Password</label>
               <Input
                 type="password"
                 className="form-control"
@@ -127,7 +127,7 @@ export default class Login extends Component {
                 {this.state.loading && (
                   <span className="spinner-border spinner-border-sm"></span>
                 )}
-                <span>Zaloguj</span>
+                <span>Log in</span>
               </button>
             </div>
 

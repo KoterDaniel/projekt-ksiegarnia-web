@@ -39,13 +39,13 @@ export default class News extends Component {
     return (
       <div className="container bg-dark">
         <Container className="mt-4">
-          <h2 className="text-light text-center m-5">Nowości Polska</h2>
+          <h2 className="text-light text-center m-5">Poland News</h2>
           <Row className="text-center text-light">
             <Col>
               <Figure>
                 <Figure.Image alt="171x180" src={Book1} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -54,7 +54,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book2} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -63,7 +63,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book3} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -72,20 +72,20 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book4} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
           </Row>
 
-          <h2 className="text-light text-center m-5">Nowości e-book</h2>
+          <h2 className="text-light text-center m-5">E-book News</h2>
 
           <Row className="text-center text-light">
             <Col>
               <Figure>
                 <Figure.Image alt="171x180" src={Book1} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -94,7 +94,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book2} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -103,7 +103,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book3} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -112,20 +112,20 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book4} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
           </Row>
 
-          <h2 className="text-light text-center m-5">Nowości zagraniczne</h2>
+          <h2 className="text-light text-center m-5">Foreign News</h2>
 
           <Row className="text-center text-light">
             <Col>
               <Figure>
                 <Figure.Image alt="171x180" src={Book1} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -134,7 +134,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book2} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -143,7 +143,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book3} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>
@@ -152,7 +152,7 @@ export default class News extends Component {
               <Figure>
                 <Figure.Image alt="171x180" src={Book4} />
                 <Figure.Caption className="text-center text-light">
-                  <div>Krótki opis książki</div>
+                  <div>book's summary</div>
                 </Figure.Caption>
               </Figure>
             </Col>

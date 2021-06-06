@@ -20,8 +20,8 @@ export default class Profile extends Component {
       redirect: null,
       userReady: false,
       currentUser: { username: "" },
-      daneUzytkownika: "Dane użytkownika",
-      historiaZakupow: "Historia zakupów",
+      daneUzytkownika: "User Data",
+      historiaZakupow: "Purchase history",
     };
   }
 
@@ -43,7 +43,7 @@ export default class Profile extends Component {
       <div className="container">
         <header className="jumbotron bg-light">
           <h3>
-            <strong>{currentUser.username}</strong> Profil
+            <strong>{currentUser.username}</strong> Profile
           </h3>
         </header>
 
@@ -59,30 +59,12 @@ export default class Profile extends Component {
                   <Card.Body>
                     <Row>
                       <Col>
-                        <p class="font-weight-normal h5">Nazwa Użytkownika:</p>
+                        <p class="font-weight-normal h5">Nick:</p>
                       </Col>
                       <Col>
                         <p class="font-weight-normal h5">
                           {currentUser.username}
                         </p>
-                      </Col>
-                    </Row>
-
-                    <Row>
-                      <Col>
-                        <p class="font-weight-normal h5">E-mail:</p>
-                      </Col>
-                      <Col>
-                        <p class="font-weight-normal h5">{currentUser.email}</p>
-                      </Col>
-                    </Row>
-
-                    <Row>
-                      <Col>
-                        <p class="font-weight-normal h5">E-mail:</p>
-                      </Col>
-                      <Col>
-                        <p class="font-weight-normal h5">{currentUser.email}</p>
                       </Col>
                     </Row>
 
@@ -112,9 +94,9 @@ export default class Profile extends Component {
                       ></div>
                     </Col>
                     <Col className="mt-3">
-                      <p class="font-weight-normal h5">Tytuł: </p>
-                      <p class="font-weight-normal h5">data zakupu: </p>
-                      <p class="font-weight-normal h5">cena zakupu: </p>
+                      <p class="font-weight-normal h5">Title: </p>
+                      <p class="font-weight-normal h5">purchase date: </p>
+                      <p class="font-weight-normal h5">purchase price: </p>
                     </Col>
                   </Row>
 
@@ -126,9 +108,9 @@ export default class Profile extends Component {
                       ></div>
                     </Col>
                     <Col className="mt-3">
-                      <p class="font-weight-normal h5">Tytuł: </p>
-                      <p class="font-weight-normal h5">data zakupu: </p>
-                      <p class="font-weight-normal h5">cena zakupu: </p>
+                      <p class="font-weight-normal h5">Title: </p>
+                      <p class="font-weight-normal h5">purchase date: </p>
+                      <p class="font-weight-normal h5">purchase price: </p>
                     </Col>
                   </Row>
 
@@ -140,9 +122,9 @@ export default class Profile extends Component {
                       ></div>
                     </Col>
                     <Col className="mt-3">
-                      <p class="font-weight-normal h5">Tytuł: </p>
-                      <p class="font-weight-normal h5">data zakupu: </p>
-                      <p class="font-weight-normal h5">cena zakupu: </p>
+                      <p class="font-weight-normal h5">Title: </p>
+                      <p class="font-weight-normal h5">purchase date: </p>
+                      <p class="font-weight-normal h5">purchase price: </p>
                     </Col>
                   </Row>
 
@@ -154,9 +136,9 @@ export default class Profile extends Component {
                       ></div>
                     </Col>
                     <Col className="mt-3">
-                      <p class="font-weight-normal h5">Tytuł: </p>
-                      <p class="font-weight-normal h5">data zakupu: </p>
-                      <p class="font-weight-normal h5">cena zakupu: </p>
+                      <p class="font-weight-normal h5">Title: </p>
+                      <p class="font-weight-normal h5">purchase date: </p>
+                      <p class="font-weight-normal h5">purchase price: </p>
                     </Col>
                   </Row>
                 </Card.Body>

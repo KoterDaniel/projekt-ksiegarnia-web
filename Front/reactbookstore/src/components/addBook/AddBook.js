@@ -166,7 +166,7 @@ export default class Book extends Component {
   };
 
   bookList = () => {
-    return this.props.history.push("/bookList");
+    return this.props.history.push("/mod/bookList");
   };
 
   render() {
@@ -227,7 +227,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="title"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's title"
+                    placeholder="Wprowadź tytuł ksiązki"
                   />
                 </Form.Group>
 
@@ -241,7 +241,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="authors"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's author"
+                    placeholder="Wprowadź autora książki"
                   />
                 </Form.Group>
               </Form.Row>
@@ -256,7 +256,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="title_slug"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's title slug"
+                    placeholder="Wprowadź title slug ksiązki"
                   />
                 </Form.Group>
 
@@ -270,7 +270,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="isbn13"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the ISBN13 number"
+                    placeholder="Wprowadź numer ISBN13 książki"
                   />
                 </Form.Group>
               </Form.Row>
@@ -285,7 +285,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="isbn10"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the ISBN10 number"
+                    placeholder="Wprowadź numer ISBN10 książki"
                   />
                 </Form.Group>
 
@@ -299,7 +299,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="price"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's price"
+                    placeholder="Wprowadź cenę książki"
                   />
                 </Form.Group>
               </Form.Row>
@@ -315,7 +315,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="publisher"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's publisher"
+                    placeholder="Wprowadź wydawcę książki"
                   />
                 </Form.Group>
 
@@ -329,14 +329,14 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="pubdate"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the month and year of book's publication"
+                    placeholder="Wprowadź miesiąć i rok wydania książki"
                   />
                 </Form.Group>
               </Form.Row>
 
               <Form.Row>
                 <Form.Group as={Col} controlId="formGridGenre">
-                  <Form.Label>Genre</Form.Label>
+                  <Form.Label>Gener</Form.Label>
                   <Form.Control
                     required
                     autoComplete="off"
@@ -345,7 +345,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="genre"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's genre"
+                    placeholder="Wprowadź temat książki"
                   />
                 </Form.Group>
 
@@ -358,7 +358,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="overview"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's overview"
+                    placeholder="Wprowadź opis książki"
                   />
                 </Form.Group>
               </Form.Row>
@@ -373,7 +373,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="synopsis"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's summary"
+                    placeholder="Wprowadź streszczenie książki"
                   />
                 </Form.Group>
 
@@ -387,7 +387,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="covers"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's cover URL"
+                    placeholder="Wprowadź URL okładki książki"
                   />
                 </Form.Group>
               </Form.Row>
@@ -403,7 +403,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="quantity"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the number of books available"
+                    placeholder="Wprowadź ilość dostępnych książek"
                   />
                 </Form.Group>
 
@@ -417,7 +417,7 @@ export default class Book extends Component {
                     onChange={this.bookChange}
                     name="availability"
                     className={"bg-dark text-white"}
-                    placeholder="Enter the book's availability (1 or 0)"
+                    placeholder="Wprowadź dostępność książki (1 lub 0)"
                   />
                 </Form.Group>
               </Form.Row>

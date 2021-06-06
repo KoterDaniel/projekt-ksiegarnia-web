@@ -53,7 +53,7 @@ class Footer extends Component {
                 <div className="row ">
                   <div className="col-xl-7 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
                     <h3 className="text-muted mb-md-0 mb-5 bold-text">
-                      Księgarnia online.
+                      Book Store Online
                     </h3>
                   </div>
                   <div className="col-xl-2 col-md-4 col-sm-4 col-12">
@@ -63,34 +63,34 @@ class Footer extends Component {
                     <ul className="list-unstyled">
                       <li>
                         <a href="/home" className="text-light">
-                          Strona główna
+                          Home
                         </a>
                       </li>
                       <li>
                         <a href="/categories" className="text-light">
-                          Kategorie
+                          Categories
                         </a>
                       </li>
                       <li>
                         <a href="/news" className="text-light">
-                          Nowości
+                          News
                         </a>
                       </li>
                       <li>
                         <a href="/aboutUs" className="text-light">
-                          O nas
+                          About Us
                         </a>
                       </li>
                       <li>
                         <a href="/contact" className="text-light">
-                          Kontakt
+                          Contact
                         </a>
                       </li>
                     </ul>
                   </div>
                   <div className="col-xl-3 col-md-4 col-sm-4 col-12">
                     <h6 className="mb-3 mb-lg-4 text-muted bold-text">
-                      <b>ADRES</b>
+                      <b>ADDRESS</b>
                     </h6>
                     <div className="text-light">
                       <p className="mb-1">Konstantynów 1H, 20-708</p>
@@ -142,13 +142,13 @@ class Footer extends Component {
                       </span>
                     </p>
                     <small className="text-light">
-                      Wszelkie prawa zastrzeżone &copy; Sebastian Kozak, Daniel
-                      Koter, Dominik Halista
+                      All rights reserved &copy; Sebastian Kozak, Daniel Koter,
+                      Dominik Halista
                     </small>
                   </div>
                   <div className="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end">
                     <h6 className="text-muted bold-text">
-                      <b>Telefon</b>
+                      <b>Phone Number</b>
                     </h6>
                     <small className="text-light">
                       <span className="mr-1">
@@ -165,7 +165,7 @@ class Footer extends Component {
                       <span className="mr-1">
                         <i className="fa fa-envelope" aria-hidden="true"></i>
                       </span>
-                      ksiegarniaonline@gmail.com
+                      ksiegarniaonlinehkk@gmail.com
                     </small>
                   </div>
                 </div>

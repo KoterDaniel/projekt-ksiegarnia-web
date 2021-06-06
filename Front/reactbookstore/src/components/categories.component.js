@@ -13,12 +13,12 @@ export default class Categories extends Component {
 
     this.state = {
       content: "",
-      menuTitle: "Wybierz kategorie",
-      title: "Kategoria",
+      menuTitle: "Choose the category",
+      title: "Category",
       drama: "Drama",
       fantasy: "Fantasy",
       thriller: "Thriller",
-      inne: "Inne",
+      inne: "Other",
     };
   }
 

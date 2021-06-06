@@ -38,7 +38,8 @@ export default class AboutUs extends Component {
       <main>
         <div className="container">
           <h3 className="text-center py-5 my-5">
-            Poznaj nas bliżej ksiegarniaonline.pl <i className="fa fa-book"></i>
+            Get to know us closer and closer to bookstore.com{" "}
+            <i className="fa fa-book"></i>
           </h3>
 
           <div className="row">
@@ -94,8 +95,7 @@ export default class AboutUs extends Component {
 
         <div className="container">
           <h3 className="text-center py-5 my-5">
-            ksiegarniaonline.pl to przede wszystkim ludzie{" "}
-            <i className="fa fa-smile-o"></i>{" "}
+            bookstore.com is primarily people <i className="fa fa-smile-o"></i>{" "}
           </h3>
 
           <div className="row">

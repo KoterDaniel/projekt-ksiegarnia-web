@@ -38,7 +38,7 @@ export default function ContactUs() {
         <img src={Rocket} alt="rocket_contact" />
       </div>
       <form onSubmit={sendEmail}>
-        <h3>Zadaj Nam Pytanie</h3>
+        <h3>Ask Us A Question</h3>
         <div className="row">
           <div className="col-md-6">
             <div className="form-group">
@@ -46,7 +46,7 @@ export default function ContactUs() {
                 type="text"
                 name="name"
                 className="form-control"
-                placeholder="Twoje Imię *"
+                placeholder="Your name *"
               />
             </div>
             <div className="form-group">
@@ -54,7 +54,7 @@ export default function ContactUs() {
                 type="email"
                 name="email"
                 className="form-control"
-                placeholder="Twój Email *"
+                placeholder="Your Email *"
               />
             </div>
             <div className="form-group">
@@ -62,7 +62,7 @@ export default function ContactUs() {
                 type="text"
                 name="phone"
                 className="form-control"
-                placeholder="Numer telefonu *"
+                placeholder="Your Phone Number *"
               />
             </div>
             <div className="form-group">
@@ -70,14 +70,14 @@ export default function ContactUs() {
                 type="text"
                 name="subject"
                 className="form-control"
-                placeholder="Temat *"
+                placeholder="Topic *"
               />
             </div>
             <div class="form-group">
               <input
                 type="submit"
                 className="btnContact"
-                value="Wyślij Wiadomość"
+                value="Send A Message"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ export default function ContactUs() {
                 rows="8"
                 name="message"
                 className="form-control"
-                placeholder="Twoja Wiadomość... *"
+                placeholder="Your Message... *"
               ></textarea>
             </div>
           </div>
