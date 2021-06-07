@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import UserService from "../../services/user.service";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 
 import axios from "axios";
 
@@ -13,7 +13,7 @@ export default class Categories extends Component {
       content: "",
       books: [],
       currentPage: 1,
-      booksPerPage: 10,
+      booksPerPage: 12,
       sortDir: "asc",
     };
   }
@@ -66,19 +66,51 @@ export default class Categories extends Component {
 
   render() {
     const { books } = this.state;
-    return books.map((book) => (
-      <Card key={book.id} style={{ width: "20rem" }}>
-        <Card.Img variant="bottom" src={book.covers} />
-        <Card.Body variant="right">
-          <Card.Title>{book.title}</Card.Title>
-          <Card.Text>{book.authors}</Card.Text>
-          <Card.Text className="text-center text-danger">
-            Price: {book.price}
-          </Card.Text>
-          <Button variant="info float-left">More..</Button>
-          <Button variant="warning float-right">Add to Cart</Button>
-        </Card.Body>
-      </Card>
-    ));
+    return (
+      <Container fluid className="row">
+        {books.map((book) => (
+          <Card
+            className="d-inline-block "
+            key={book.id}
+            style={{ width: "20rem" }}
+          >
+            <Card.Img
+              variant="top"
+              style={{ width: "250px", height: "350px" }}
+              src={book.covers}
+            />
+            <Card.Body
+              variant="right"
+              style={{ width: "250px", height: "260px" }}
+            >
+              <Card.Title
+                className="row "
+                style={{ width: "250px", height: "100px" }}
+              >
+                {book.title}
+              </Card.Title>
+              <Card.Text
+                className="row"
+                style={{ width: "250px", height: "50px" }}
+              >
+                {book.authors}
+              </Card.Text>
+              <Card.Text
+                className="row text-center text-danger jusitfy-content-center"
+                style={{ width: "250px", height: "50px" }}
+              >
+                <div className="col text-center">Price: {book.price}</div>
+              </Card.Text>
+            </Card.Body>
+            <Button className="col-5" variant="info">
+              More..
+            </Button>
+            <Button className="col-5 float-right" variant="warning">
+              Add to Cart
+            </Button>
+          </Card>
+        ))}
+      </Container>
+    );
   }
 }
