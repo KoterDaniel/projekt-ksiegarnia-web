@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Service
-public class BookServiceImpl implements IService<Book>, IPageService<Book>{
+public class BookServiceImpl implements IService<Book>, IPageService<Book> {
     @Autowired
     private BookRepository bookRepository;
 
@@ -35,6 +35,10 @@ public class BookServiceImpl implements IService<Book>, IPageService<Book>{
     @Override
     public Optional<Book> findById(Long id) {
         return bookRepository.findById(id);
+    }
+
+    public Book getBookById(long bookId) {
+        return bookRepository.getBookById(bookId);
     }
 
     @Override

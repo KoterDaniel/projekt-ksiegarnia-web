@@ -1,6 +1,6 @@
 package com.example.bookstore.security.services;
 
-import org.springframework.stereotype.Service;
+import com.example.bookstore.models.Book;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface IService<T>{
     Collection<T> findAll();
 
-    Optional<T> findById(Long id);
+   Optional<Book> findById(Long id);
 
     T saveOrUpdate(T t);
 

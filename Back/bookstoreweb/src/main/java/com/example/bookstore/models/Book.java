@@ -4,7 +4,7 @@ package com.example.bookstore.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "book")
+@Table(name="book")
 public class Book {
 
 
@@ -12,33 +12,33 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String title;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String authors;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String title_slug;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String isbn13;
-    @Column(nullable = false)
+    @Column (nullable = true)
     private String isbn10;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String price;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String publisher;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String pubdate;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String genre;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String overview;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String synopsis;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String covers;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private Integer quantity;
-    @Column(nullable = false)
+    @Column (nullable = false)
     private Integer availability;
 
     public Long getId() {
