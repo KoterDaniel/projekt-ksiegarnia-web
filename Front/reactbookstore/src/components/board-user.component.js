@@ -68,6 +68,7 @@ export default class BoardUser extends Component {
           covers: data.covers,
           quantity: data.quantity,
         });
+        console.log(this.state.title);
       })
       .catch((error) => {
         console.log(error);
@@ -87,23 +88,13 @@ export default class BoardUser extends Component {
           this.setState({
             cart: response.data,
           });
-          const list = response.data.map((c) => (
-            <div key={c.id}>
-              {() => this.findBooksById(c.book_id)}
-              <div>Book id: {this.state.id}</div>
-            </div>
-          ));
-          this.setState({
-            booksList: list,
-          });
           console.log(response.data);
         } else {
-          console.log("nie gitówa");
+          console.log("data === null");
         }
       })
       .catch(function (response) {
         console.log("Error ", response);
-        console.log("Błąd");
       });
   };
 
@@ -112,7 +103,9 @@ export default class BoardUser extends Component {
 
     return (
       <div className="container">
-        {this.state.booksList}
+        <strong className="text-warning text-center">
+          Tu miałbyć koszyk :(
+        </strong>
         {/* {cart.map((c) => (
           <div key={c.id}>
             <div>Book id: {c.book_id}</div>

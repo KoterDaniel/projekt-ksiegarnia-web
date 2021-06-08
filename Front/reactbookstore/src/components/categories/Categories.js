@@ -382,7 +382,7 @@ export default class Categories extends Component {
                 </Card.Text>
               </Card.Body>
               <div className="row">
-                <div className="col-4">
+                <div className="col-6">
                   <Button className="" variant="info">
                     More..
                   </Button>
@@ -396,7 +396,7 @@ export default class Categories extends Component {
                     Add to Cart
                   </Button>
                 </div>
-                <Form class="col-2">
+                {/* <Form class="col-2">
                   <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Control style={{ width: "48px" }} as="select" custom>
                       <option value="1">1</option>
@@ -406,7 +406,7 @@ export default class Categories extends Component {
                       <option value="5">5</option>
                     </Form.Control>
                   </Form.Group>
-                </Form>
+                </Form> */}
               </div>
             </Card>
           ))}

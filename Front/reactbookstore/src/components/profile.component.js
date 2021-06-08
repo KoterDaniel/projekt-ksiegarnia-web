@@ -7,11 +7,6 @@ import { Card, Form, Accordion, Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHistory, faUser } from "@fortawesome/free-solid-svg-icons";
 
-import book1 from "../assets/book1.jpg";
-import book2 from "../assets/book2.jpg";
-import book3 from "../assets/book3.jpg";
-import book4 from "../assets/book4.jpg";
-
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -85,63 +80,7 @@ export default class Profile extends Component {
                 {this.state.historiaZakupow}
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="1">
-                <Card.Body>
-                  <Row>
-                    <Col>
-                      <div
-                        className="book-item mb-5"
-                        style={{ backgroundImage: `url(${book1})` }}
-                      ></div>
-                    </Col>
-                    <Col className="mt-3">
-                      <p class="font-weight-normal h5">Title: </p>
-                      <p class="font-weight-normal h5">purchase date: </p>
-                      <p class="font-weight-normal h5">purchase price: </p>
-                    </Col>
-                  </Row>
-
-                  <Row>
-                    <Col>
-                      <div
-                        className="book-item mb-5"
-                        style={{ backgroundImage: `url(${book2})` }}
-                      ></div>
-                    </Col>
-                    <Col className="mt-3">
-                      <p class="font-weight-normal h5">Title: </p>
-                      <p class="font-weight-normal h5">purchase date: </p>
-                      <p class="font-weight-normal h5">purchase price: </p>
-                    </Col>
-                  </Row>
-
-                  <Row>
-                    <Col>
-                      <div
-                        className="book-item mb-5"
-                        style={{ backgroundImage: `url(${book3})` }}
-                      ></div>
-                    </Col>
-                    <Col className="mt-3">
-                      <p class="font-weight-normal h5">Title: </p>
-                      <p class="font-weight-normal h5">purchase date: </p>
-                      <p class="font-weight-normal h5">purchase price: </p>
-                    </Col>
-                  </Row>
-
-                  <Row>
-                    <Col>
-                      <div
-                        className="book-item mb-5"
-                        style={{ backgroundImage: `url(${book4})` }}
-                      ></div>
-                    </Col>
-                    <Col className="mt-3">
-                      <p class="font-weight-normal h5">Title: </p>
-                      <p class="font-weight-normal h5">purchase date: </p>
-                      <p class="font-weight-normal h5">purchase price: </p>
-                    </Col>
-                  </Row>
-                </Card.Body>
+                <Card.Body></Card.Body>
               </Accordion.Collapse>
             </Card>
           </Accordion>
