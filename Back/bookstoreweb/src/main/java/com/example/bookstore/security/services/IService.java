@@ -14,4 +14,6 @@ public interface IService<T>{
     T saveOrUpdate(T t);
 
     String deleteById(Long id);
+
+
 }

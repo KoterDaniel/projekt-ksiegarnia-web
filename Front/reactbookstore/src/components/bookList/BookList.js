@@ -284,7 +284,7 @@ export default class BookList extends Component {
                       </td>
                       <td>{book.authors}</td>
                       <td>{book.isbn13}</td>
-                      <td>{book.price}</td>
+                      <td>{book.price}$</td>
                       <td>{book.quantity}</td>
                       <td>{book.genre}</td>
                       <td>

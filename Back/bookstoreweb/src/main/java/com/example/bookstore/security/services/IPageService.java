@@ -7,6 +7,6 @@ import org.springframework.stereotype.Service;
 
 public interface IPageService<T> {
     Page<T> findAll(Pageable pageable, String searchText);
-
+    Page<T> findAllBooksByGenre(Pageable pageable, String searchText);
     Page<T> findAll(Pageable pageable);
     }

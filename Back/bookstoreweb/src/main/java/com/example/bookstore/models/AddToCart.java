@@ -16,7 +16,8 @@ public class AddToCart {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     Book book;
-    //Long product_id;
+    @Column(updatable = false, insertable = false)
+    Long book_id;
     int qty;
     double price;
     @Column
@@ -41,6 +42,14 @@ public class AddToCart {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public Long getBook_id() {
+        return book_id;
+    }
+
+    public void setBook_id(Long book_id) {
+        this.book_id = book_id;
     }
 
     public int getQty() {

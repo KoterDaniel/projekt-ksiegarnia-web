@@ -14,6 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 
 @RestController
@@ -34,6 +37,11 @@ public class BookController implements Resource<Book> {
     }
 
     @Override
+    public ResponseEntity<Page<Book>> findAllBooksByGenre(Pageable pageable, String searchText) {
+        return new ResponseEntity<>(bookPageService.findAllBooksByGenre(pageable,searchText),HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<Page<Book>> findAll(int pageNumber, int pageSize, String sortBy, String sortDir) {
         return new ResponseEntity<>(bookPageService.findAll(
                 PageRequest.of(
@@ -47,6 +55,7 @@ public class BookController implements Resource<Book> {
     public ResponseEntity<Book> findById(Long id) {
         return new ResponseEntity<>(bookService.findById(id).get(), HttpStatus.OK);
     }
+
 
     @Override
     public ResponseEntity<Book> save(Book book) {
@@ -62,6 +71,9 @@ public class BookController implements Resource<Book> {
     public ResponseEntity<String> deleteById(Long id) {
         return new ResponseEntity<>(bookService.deleteById(id), HttpStatus.OK);
     }
+
+
+
 
 //    @GetMapping("/languages")
 //    public  ResponseEntity<Set<String>> findAllLanguages() {

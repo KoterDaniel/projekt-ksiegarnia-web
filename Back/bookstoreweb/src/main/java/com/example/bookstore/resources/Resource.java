@@ -10,6 +10,9 @@ public interface Resource <T>{
     @GetMapping("/search/{searchText}")
     ResponseEntity<Page<T>> findAll(Pageable pageable, @PathVariable String searchText);
 
+    @GetMapping("/searchByGenre/{searchText}")
+    ResponseEntity<Page<T>> findAllBooksByGenre(Pageable pageable, @PathVariable String searchText);
+
     @GetMapping
     ResponseEntity<Page<T>> findAll(int pageNumber, int pageSize, String sortBy, String sortDir);
 
@@ -24,4 +27,6 @@ public interface Resource <T>{
 
     @DeleteMapping("{id}")
     ResponseEntity<String> deleteById(@PathVariable Long id);
+
+
 }

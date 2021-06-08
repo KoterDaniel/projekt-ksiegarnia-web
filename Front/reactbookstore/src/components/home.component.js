@@ -2,16 +2,14 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 
-// obsługa karuzeli
+import { Card } from "react-bootstrap";
+
+import axios from "axios";
 
 // components & assets
 import Banner1 from "../assets/banner1.jpg";
 import Banner2 from "../assets/banner2.jpg";
 import Banner3 from "../assets/banner3.jpg";
-import Book1 from "../assets/book1.jpg";
-import Book2 from "../assets/book2.jpg";
-import Book3 from "../assets/book3.jpg";
-import Book4 from "../assets/book4.jpg";
 
 export default class Home extends Component {
   constructor(props) {
@@ -19,6 +17,10 @@ export default class Home extends Component {
 
     this.state = {
       content: "",
+      books: [],
+      currentPage: 1,
+      booksPerPage: 12,
+      sortDir: "asc",
     };
   }
 
@@ -38,9 +40,38 @@ export default class Home extends Component {
         });
       }
     );
+    this.findAllBooks(this.state.currentPage);
+  }
+
+  findAllBooks(currentPage) {
+    currentPage -= 1;
+    axios
+      .get(
+        "http://localhost:8080/books?pageNumber=" +
+          currentPage +
+          "&pageSize=" +
+          this.state.booksPerPage +
+          "&sortBy=title&sortDir=" +
+          this.state.sortDir
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({
+          books: data.content,
+          totalPages: data.totalPages,
+          totalElements: data.totalElements,
+          currentPage: data.number + 1,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        localStorage.removeItem("jwtToken");
+        this.props.history.push("/");
+      });
   }
 
   render() {
+    const { books } = this.state;
     return (
       <div>
         <div
@@ -96,75 +127,21 @@ export default class Home extends Component {
         </div>
 
         <h2 className="display-4">
-          <strong>Bestsellers</strong>
+          <strong>This summer bestsellers</strong>
         </h2>
         <div className="row-fluid">
-          <div className="col-lg-12 col-md-10">
+          <div className="col-lg-12">
             <div className="book-container">
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book1})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book2})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book3})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book4})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book1})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book2})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book3})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book4})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book1})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book2})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book3})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book4})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book1})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book2})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book3})` }}
-              ></div>
-              <div
-                className="book-item"
-                style={{ backgroundImage: `url(${Book4})` }}
-              ></div>
+              {books.map((book) => (
+                <Card.Img
+                  style={{
+                    width: "300px",
+                    height: "410px",
+                    marginRight: "10px",
+                  }}
+                  src={book.covers}
+                />
+              ))}
             </div>
           </div>
         </div>

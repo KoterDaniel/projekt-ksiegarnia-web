@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Service
-public class BookServiceImpl implements IService<Book>, IPageService<Book> {
+public class BookServiceImpl implements IService<Book>, IPageService<Book>{
     @Autowired
     private BookRepository bookRepository;
 
@@ -25,6 +25,11 @@ public class BookServiceImpl implements IService<Book>, IPageService<Book> {
     @Override
     public Page<Book> findAll(Pageable pageable, String searchText) {
         return bookRepository.findAllBooks(pageable, searchText);
+    }
+
+    @Override
+    public Page<Book> findAllBooksByGenre(Pageable pageable, String searchText) {
+        return bookRepository.findAllBooksByGenre(pageable, searchText);
     }
 
     @Override
@@ -57,6 +62,8 @@ public class BookServiceImpl implements IService<Book>, IPageService<Book> {
         }
         return jsonObject.toString();
     }
+
+
 
 }
 
